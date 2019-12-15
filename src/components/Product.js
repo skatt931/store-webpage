@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { ProductContext } from '../context';
 import { ButtonContainer } from './Button';
+import PropTypes from 'prop-types';
 
 const Product = (props) => {
   const { id, title, img, price, inCart } = props.product;
@@ -38,6 +39,16 @@ const Product = (props) => {
       </div>
     </ProductWrapper>
   )
+}
+
+Product.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string, 
+    img: PropTypes.string, 
+    price: PropTypes.number, 
+    inCart: PropTypes.bool
+  }).isRequired,
 }
 
 export default Product;

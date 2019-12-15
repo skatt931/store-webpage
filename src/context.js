@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { storeProducts, detailProduct } from './data';
 
 
@@ -7,10 +7,25 @@ const ProductContext = React.createContext();
 // Consumer
 
 const ProductProvider = (props) => {
-  const [state, setstate] = useState({
-    products: storeProducts,
+  const [state, setState] = useState({
+    products: [],
     details: detailProduct
   });
+
+  useEffect(() => {
+    setProducts();
+  }, []);
+
+  const setProducts = () => {
+    let tempProducts = [];
+    storeProducts.forEach(item => {
+      const singleItem = {...item};
+      tempProducts = [...tempProducts, singleItem];
+    });
+    setState({
+      products: tempProducts
+    })
+  }
 
   const handleDetail = () => {
     console.log('hello from the detail'); 
