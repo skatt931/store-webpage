@@ -9,7 +9,7 @@ const ProductContext = React.createContext();
 const ProductProvider = (props) => {
   const [state, setState] = useState({
     products: [],
-    details: detailProduct
+    detailProduct: detailProduct
   });
 
   useEffect(() => {
@@ -28,13 +28,26 @@ const ProductProvider = (props) => {
     })
   }
 
-  const handleDetail = () => {
-    console.log('hello from the detail'); 
-  }
+  const getItem = (id) => {
+    const product = state.products.find(item => { 
+      return item.id === id 
+    });
+
+    return product;
+  };
+
+  const handleDetail = (id) => {
+    const product = getItem(id);
+
+    setState({
+      ...state,
+      detailProduct: product,
+    });
+  };
 
   const addToCart = (id) => {
     console.log('hello from the Cart ' + id); 
-  }
+  };
 
   return (
     <ProductContext.Provider value={{

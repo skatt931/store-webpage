@@ -5,7 +5,7 @@ import { ButtonContainer } from './Button';
 
 const Details = () => {
   const productsContexts = useContext(ProductContext);
-  const { id, company, img, info, price, title, inCart } = productsContexts.details;
+  const { id, company, img, info, price, title, inCart } = productsContexts.detailProduct;
   return (
     <div className="container py-5">
       {/* title */}
