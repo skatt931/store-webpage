@@ -23,6 +23,7 @@ const ProductProvider = (props) => {
       tempProducts = [...tempProducts, singleItem];
     });
     setState({
+      ...state,
       products: tempProducts
     })
   }
@@ -31,8 +32,8 @@ const ProductProvider = (props) => {
     console.log('hello from the detail'); 
   }
 
-  const addToCart = () => {
-    console.log('hello from the Cart'); 
+  const addToCart = (id) => {
+    console.log('hello from the Cart ' + id); 
   }
 
   return (
