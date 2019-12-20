@@ -43,7 +43,8 @@ const Details = () => {
             <Link to='/'>
               <ButtonContainer>back to products</ButtonContainer>
             </Link>
-            <ButtonContainer
+            <ButtonContainer 
+              cart
               dissabled={inCart}
               onClick={() => productsContexts.addToCart(id)}
             >
